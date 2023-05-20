@@ -29,9 +29,8 @@ ENV MET_OFFICE_SOFTWARE_IDENT "github.com/bentasker/Ecowitt_to_InfluxDB"
 ENV MET_OFFICE_UPDATE_INTERVAL "5"
 ENV MET_OFFICE_URL "https://wow.metoffice.gov.uk/automaticreading"
 
-
-RUN pip install flask influxdb_client requests
-
 COPY app /app
+
+RUN pip install -r /app/requirements.txt
 
 CMD "/app/ecowitt.py"
